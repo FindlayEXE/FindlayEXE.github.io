@@ -216,18 +216,18 @@
             <h2>The Divergence: Violent Crime Down, Property Crime Stable</h2>
             
             <p>
-                The chart below tells the core story. Between 2003 and 2020, <span class="highlight">violent crime in San Francisco declined by roughly 50%</span>. That's a significant achievement. Robberies, assaults, and rapes have become less frequent. For a city, this is the kind of outcome that typically reflects progress: better policing, community programs, economic opportunity, or some combination thereof.
+                The chart below tells the core story. Between 2003 and 2020, <span class="highlight">violent crime in San Francisco declined significantly</span>. Robberies, assaults, and rapes have become less frequent. For a city, this is the kind of outcome that typically reflects progress: better policing, community programs, economic opportunity, or some combination thereof.
             </p>
             
             <p>
-                But property crime tells a different story. From 2003 to 2020, property crimes (larceny, burglary, car theft) remained relatively flat—hovering around 60,000-80,000 incidents per year with no long-term decline. The normalized chart (bottom panel) shows this starkly: violent crime has fallen to about half its 2003 baseline, while property crime has fluctuated but never decisively dropped.
+                But property crime tells a different story. From 2003 to 2020, property crimes (larceny theft, burglary, motor vehicle theft) remained relatively flat—hovering around 60,000-80,000 incidents per year with no long-term decline. The normalized chart (bottom panel) shows this starkly: violent crime has fallen substantially from its 2003 baseline, while property crime has fluctuated but never decisively dropped.
             </p>
             
             <div class="viz-section">
                 <h3>Visualization 1: Crime Trends Over Time</h3>
                 <img src="images/week8_violent_vs_property_trends.png" alt="Violent vs Property Crime Trends">
                 <div class="caption">
-                    <strong>Figure 1: Absolute counts and normalized trends (indexed to 2003).</strong> The top panel shows raw incident counts; the bottom panel normalizes to 2003 baseline (100%) to make relative changes visible. Violent crime declined ~50% while property crime remained flat.
+                    <strong>Figure 1: Absolute counts and normalized trends (indexed to 2003).</strong> The top panel shows raw incident counts; the bottom panel normalizes to 2003 baseline (100%) to make relative changes visible. Violent crime shows a clear downward trend while property crime remains relatively stable over the 17-year period.
                 </div>
             </div>
             
@@ -268,7 +268,7 @@
             <h2>Where Does Crime Happen? Burglary Hotspots</h2>
             
             <p>
-                Crime is never uniformly distributed. Certain neighborhoods concentrate burglary incidents. The map below shows all reported burglaries in San Francisco from 2018-2020. Red zones indicate clustering of incidents; cooler colors (blue, green, yellow) show lower-incident areas.
+                Crime is never uniformly distributed. Certain neighborhoods concentrate burglary incidents. The map below shows all reported burglaries in San Francisco from 2018-2020—a total of <span class="highlight">19,928 incidents</span>. Red zones indicate clustering of incidents; cooler colors (blue, green, yellow) show lower-incident areas.
             </p>
             
             <p>
@@ -279,7 +279,7 @@
                 <h3>Visualization 2: Burglary Hotspots (2018-2020)</h3>
                 <iframe src="visualizations/week8_burglary_hotspots.html" title="Burglary Hotspots Map"></iframe>
                 <div class="caption">
-                    <strong>Figure 2: Interactive heatmap of burglary incidents.</strong> Red areas indicate high concentration of burglary reports. You can zoom and pan to explore specific neighborhoods. Each point represents a reported incident from 2018-2020.
+                    <strong>Figure 2: Interactive heatmap of 19,928 burglary incidents.</strong> Red areas indicate high concentration of burglary reports. You can zoom and pan to explore specific neighborhoods. Each point represents a reported burglary incident from 2018-2020.
                 </div>
             </div>
             
@@ -293,11 +293,25 @@
             <h2>Beyond Aggregate Numbers: The District View</h2>
             
             <p>
-                Averaging across the whole city hides important variation. Not all police districts experience the same crime mix. Some districts are robbery-heavy; others deal primarily with larceny and burglary. The interactive chart below breaks down crime by district and shows which types dominate where.
+                Averaging across the whole city hides important variation. Not all police districts experience the same crime mix. Some districts are robbery-heavy; others deal primarily with larceny and burglary. The interactive chart below breaks down crime by district and shows which types dominate where, focusing on the top 10 districts by total crime volume from 2018-2020.
             </p>
             
             <p>
-                <strong>How to read this chart:</strong> Each bar represents one police district. The color segments show different crime categories. Hover over segments to see exact counts. Notice which districts have tall bars (high-crime areas) and which crime types dominate each.
+                <strong>How to read this chart:</strong> Each bar represents one police district. The color segments show different crime categories. Hover over segments to see exact counts. Notice which districts have tall bars (high-crime areas) and which crime types dominate each. This reveals that crime patterns vary significantly across San Francisco's neighborhoods.
+            </p>
+            
+            <div class="viz-section">
+                <h3>Visualization 3: Crime Composition by Police District</h3>
+                <iframe src="visualizations/week8_district_crime_profiles.html" title="Crime Profiles by District"></iframe>
+                <div class="caption">
+                    <strong>Figure 3: Stacked bar chart of top 10 police districts, broken down by crime category.</strong> Each color represents a different crime type. Hover to see exact numbers. Data covers 2018-2020 and shows how crime composition varies across districts.
+                </div>
+            </div>
+            
+            <div class="key-finding">
+                <strong>Key Finding 3:</strong> Crime composition varies significantly by district. Understanding local context—not just city-wide trends—is essential for effective response.
+            </div>
+        </section>
             </p>
             
             <div class="viz-section">
@@ -318,7 +332,7 @@
             <h2>Conclusion: Progress, Uneven</h2>
             
             <p>
-                San Francisco's story over the past two decades is one of <strong>uneven progress</strong>. Violent crime has declined sharply—a real and significant achievement. But property crime has remained stubbornly high, distributed across specific neighborhoods and districts.
+                San Francisco's story over the past two decades is one of <strong>uneven progress</strong>. Violent crime has declined significantly—a real and substantial achievement. But property crime has remained stubbornly persistent, distributed across specific neighborhoods and districts.
             </p>
             
             <p>
@@ -336,7 +350,7 @@
             
             <h3>A Note on Data Limitations</h3>
             <p>
-                This analysis is based on <strong>reported incidents</strong> only. Many crimes go unreported; reporting rates vary by crime type and neighborhood. A murder is almost always reported; a shoplifting often isn't. When we see property crime as "flat," we may be seeing flat *reporting* rather than flat *actual* crime. This is why it's essential to pair data analysis with qualitative research, community feedback, and domain expertise before drawing policy conclusions.
+                This analysis is based on <strong>reported incidents</strong> only. Many crimes go unreported; reporting rates vary by crime type and neighborhood. A murder is almost always reported; a shoplifting often isn't. When we see property crime as "stable," we may be seeing stable *reporting* rather than stable *actual* crime. This is why it's essential to pair data analysis with qualitative research, community feedback, and domain expertise before drawing policy conclusions.
             </p>
         </section>
         
