@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SF Crime Data Story: Violent vs Property Crime</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.08);
+        }
+        
+        section {
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid #ecf0f1;
+        }
+        
+        section:last-child {
+            border-bottom: none;
+        }
+        
+        h2 {
+            color: #2c3e50;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            border-left: 5px solid #3498db;
+            padding-left: 1rem;
+        }
+        
+        h3 {
+            color: #34495e;
+            font-size: 1.3rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+        
+        ul, ol {
+            margin: 1rem 0 1rem 2rem;
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .highlight {
+            background-color: #fff3cd;
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+            font-weight: 500;
+        }
+        
+        .viz-section {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background-color: #f8f9fa;
+            border-left: 4px solid #3498db;
+            border-radius: 4px;
+        }
+        
+        .viz-section h3 {
+            color: #2980b9;
+            margin-top: 0;
+        }
+        
+        .viz-section img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+            margin: 1rem 0;
+            border: 1px solid #ddd;
+        }
+        
+        .viz-section iframe {
+            width: 100%;
+            height: 600px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin: 1rem 0;
+        }
+        
+        .caption {
+            font-size: 0.95rem;
+            color: #666;
+            font-style: italic;
+            margin: 0.8rem 0 1.5rem 0;
+            padding: 0.8rem;
+            background-color: #e8f4f8;
+            border-radius: 3px;
+            border-left: 3px solid #3498db;
+        }
+        
+        .key-finding {
+            background: linear-gradient(135deg, #e8f8f5 0%, #d5f4e6 100%);
+            padding: 1.2rem;
+            border-radius: 4px;
+            margin: 1.5rem 0;
+            border-left: 5px solid #27ae60;
+        }
+        
+        .key-finding strong {
+            color: #27ae60;
+        }
+        
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+            font-size: 0.95rem;
+        }
+        
+        a {
+            color: #3498db;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        a:hover {
+            color: #2980b9;
+            text-decoration: underline;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            padding: 0.5rem 1rem;
+            background-color: #ecf0f1;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        
+        .back-link:hover {
+            background-color: #bdc3c7;
+        }
+        
+        strong {
+            color: #2c3e50;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Two Faces of Crime in San Francisco</h1>
+        <p>How violent crime and property crime have diverged over two decades of data</p>
+    </header>
+    
+    <div class="container">
+        <a href="index.html" class="back-link">← Back to All Visualizations</a>
+        
+        <!-- INTRODUCTION -->
+        <section>
+            <h2>Introduction: A Tale of Two Crime Types</h2>
+            
+            <p>
+                When we talk about crime in San Francisco, we're usually lumping together very different phenomena. A robbery is nothing like a car theft. An assault differs fundamentally from a burglary. Yet official crime statistics often treat them as a monolithic "crime problem." This story examines what happens when we separate violent crimes from property crimes—and discover two strikingly different trends over the past two decades.
+            </p>
+            
+            <p>
+                Using incident data from the San Francisco Police Department (2003-2020), we classify crimes into two broad categories:
+            </p>
+            <ul>
+                <li><strong>Violent Crimes:</strong> Rape, Robbery, Aggravated Assault</li>
+                <li><strong>Property Crimes:</strong> Larceny Theft, Burglary, Motor Vehicle Theft</li>
+            </ul>
+            
+            <p>
+                The story that emerges is one of uneven progress: one type of crime has declined dramatically, while the other remains stubbornly persistent.
+            </p>
+        </section>
+        
+        <!-- VISUALIZATION 1 -->
+        <section>
+            <h2>The Divergence: Violent Crime Down, Property Crime Stable</h2>
+            
+            <p>
+                The chart below tells the core story. Between 2003 and 2020, <span class="highlight">violent crime in San Francisco declined by roughly 50%</span>. That's a significant achievement. Robberies, assaults, and rapes have become less frequent. For a city, this is the kind of outcome that typically reflects progress: better policing, community programs, economic opportunity, or some combination thereof.
+            </p>
+            
+            <p>
+                But property crime tells a different story. From 2003 to 2020, property crimes (larceny, burglary, car theft) remained relatively flat—hovering around 60,000-80,000 incidents per year with no long-term decline. The normalized chart (bottom panel) shows this starkly: violent crime has fallen to about half its 2003 baseline, while property crime has fluctuated but never decisively dropped.
+            </p>
+            
+            <div class="viz-section">
+                <h3>Visualization 1: Crime Trends Over Time</h3>
+                <img src="images/week8_violent_vs_property_trends.png" alt="Violent vs Property Crime Trends">
+                <div class="caption">
+                    <strong>Figure 1: Absolute counts and normalized trends (indexed to 2003).</strong> The top panel shows raw incident counts; the bottom panel normalizes to 2003 baseline (100%) to make relative changes visible. Violent crime declined ~50% while property crime remained flat.
+                </div>
+            </div>
+            
+            <div class="key-finding">
+                <strong>Key Finding 1:</strong> Violent crime fell dramatically over 17 years, but property crime proved far more resistant to change.
+            </div>
+        </section>
+        
+        <!-- DISCUSSION OF IMPLICATIONS -->
+        <section>
+            <h2>Why the Difference?</h2>
+            
+            <h3>A Brief Reflection on Crime Types</h3>
+            
+            <p>
+                Why might violent crime decline while property crime stagnates? Several hypotheses emerge from available research:
+            </p>
+            
+            <ul>
+                <li>
+                    <strong>Economic Factors:</strong> Property crime may be more responsive to economic cycles (recessions → desperation → theft). Violent crime may reflect deeper social dynamics that are less swayed by short-term economic fluctuations.
+                </li>
+                <li>
+                    <strong>Policing Strategy:</strong> Modern policing has invested heavily in violence reduction (hot-spot policing, gang intervention, detective work on serious crimes). Property crime often receives less focused attention.
+                </li>
+                <li>
+                    <strong>Opportunity and Technology:</strong> Smartphones and portable electronics may increase theft opportunities. Online shopping (less human-to-human interaction) may reduce robbery as a proportion of property crime but not property crime overall.
+                </li>
+            </ul>
+            
+            <p>
+                None of these are definitive—this is a data story, not a causal analysis. But the data prompts important questions about where resources are directed and why certain crime types prove more tractable.
+            </p>
+        </section>
+        
+        <!-- VISUALIZATION 2 -->
+        <section>
+            <h2>Where Does Crime Happen? Burglary Hotspots</h2>
+            
+            <p>
+                Crime is never uniformly distributed. Certain neighborhoods concentrate burglary incidents. The map below shows all reported burglaries in San Francisco from 2018-2020. Red zones indicate clustering of incidents; cooler colors (blue, green, yellow) show lower-incident areas.
+            </p>
+            
+            <p>
+                Notice the hotspots. The <strong>Tenderloin</strong> and around <strong>Market Street</strong> are prominent. So are scattered incidents across <strong>Southern Station</strong> and the <strong>Bayview</strong> neighborhoods. This is crucial context: when we talk about property crime, we're not always talking about the same neighborhoods as violent crime hotspots. Different crimes have different geographies.
+            </p>
+            
+            <div class="viz-section">
+                <h3>Visualization 2: Burglary Hotspots (2018-2020)</h3>
+                <iframe src="visualizations/week8_burglary_hotspots.html" title="Burglary Hotspots Map"></iframe>
+                <div class="caption">
+                    <strong>Figure 2: Interactive heatmap of burglary incidents.</strong> Red areas indicate high concentration of burglary reports. You can zoom and pan to explore specific neighborhoods. Each point represents a reported incident from 2018-2020.
+                </div>
+            </div>
+            
+            <div class="key-finding">
+                <strong>Key Finding 2:</strong> Property crime hotspots cluster in specific urban corridors (downtown core, Tenderloin, Bayview), suggesting that targeted interventions could focus resources effectively.
+            </div>
+        </section>
+        
+        <!-- VISUALIZATION 3 -->
+        <section>
+            <h2>Beyond Aggregate Numbers: The District View</h2>
+            
+            <p>
+                Averaging across the whole city hides important variation. Not all police districts experience the same crime mix. Some districts are robbery-heavy; others deal primarily with larceny and burglary. The interactive chart below breaks down crime by district and shows which types dominate where.
+            </p>
+            
+            <p>
+                <strong>How to read this chart:</strong> Each bar represents one police district. The color segments show different crime categories. Hover over segments to see exact counts. Notice which districts have tall bars (high-crime areas) and which crime types dominate each.
+            </p>
+            
+            <div class="viz-section">
+                <h3>Visualization 3: Crime Composition by Police District</h3>
+                <iframe src="visualizations/week8_district_crime_profiles.html" title="Crime Profiles by District"></iframe>
+                <div class="caption">
+                    <strong>Figure 3: Stacked bar chart of top 10 police districts, broken down by crime category.</strong> Each color represents a different crime type. Hover to see exact numbers. Data covers 2018-2020.
+                </div>
+            </div>
+            
+            <div class="key-finding">
+                <strong>Key Finding 3:</strong> Crime composition varies significantly by district. Understanding local context—not just city-wide trends—is essential for effective response.
+            </div>
+        </section>
+        
+        <!-- CONCLUSION -->
+        <section>
+            <h2>Conclusion: Progress, Uneven</h2>
+            
+            <p>
+                San Francisco's story over the past two decades is one of <strong>uneven progress</strong>. Violent crime has declined sharply—a real and significant achievement. But property crime has remained stubbornly high, distributed across specific neighborhoods and districts.
+            </p>
+            
+            <p>
+                This raises important questions:
+            </p>
+            <ul>
+                <li>Why have we succeeded with violent crime but not property crime?</li>
+                <li>Are the strategies that work for violence also effective for theft and burglary?</li>
+                <li>How do we allocate police and community resources to address these divergent trends?</li>
+            </ul>
+            
+            <p>
+                The data doesn't answer these policy questions—that requires expertise beyond data analysis. But it frames them clearly. And that's the power of a good data story: not to declare winners and losers, but to illuminate the problems we face and prompt smarter conversations about solutions.
+            </p>
+            
+            <h3>A Note on Data Limitations</h3>
+            <p>
+                This analysis is based on <strong>reported incidents</strong> only. Many crimes go unreported; reporting rates vary by crime type and neighborhood. A murder is almost always reported; a shoplifting often isn't. When we see property crime as "flat," we may be seeing flat *reporting* rather than flat *actual* crime. This is why it's essential to pair data analysis with qualitative research, community feedback, and domain expertise before drawing policy conclusions.
+            </p>
+        </section>
+        
+        <!-- METHODOLOGY -->
+        <section>
+            <h2>Methodology & Data</h2>
+            
+            <h3>Data Source</h3>
+            <p>
+                San Francisco Police Department Incident Reports, 2003-2020 (publicly available via data.sfgov.org)
+            </p>
+            
+            <h3>Definitions</h3>
+            <ul>
+                <li><strong>Violent Crimes:</strong> Rape, Robbery, Aggravated Assault</li>
+                <li><strong>Property Crimes:</strong> Larceny Theft, Burglary, Motor Vehicle Theft</li>
+                <li><strong>Other:</strong> All remaining categories (fraud, vandalism, trespassing, etc.)</li>
+            </ul>
+            
+            <h3>Visualizations</h3>
+            <ul>
+                <li><strong>Figure 1:</strong> Matplotlib (line chart, two panels)</li>
+                <li><strong>Figure 2:</strong> Folium + OpenStreetMap (heatmap layer)</li>
+                <li><strong>Figure 3:</strong> Plotly (interactive stacked bar chart)</li>
+            </ul>
+            
+            <p>
+                All visualizations were created using Python (Pandas, Matplotlib, Plotly, Folium). Code and analysis are part of a data analysis course focused on narrative visualization and responsible data communication.
+            </p>
+        </section>
+    </div>
+    
+    <footer>
+        <p><strong>Data Story:</strong> Two Faces of Crime in San Francisco | Created for Social Data Analysis & Visualization Course</p>
+        <p>Data Source: San Francisco Police Department | 2003-2020</p>
+        <p style="margin-top: 1rem; opacity: 0.8;">
+            <a href="index.html" style="color: white;">← Back to Main Dashboard</a>
+        </p>
+    </footer>
+</body>
+</html>
